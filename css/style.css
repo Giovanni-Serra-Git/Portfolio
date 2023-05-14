@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');
+
+:root {
+	/* ------- Color ------- */
+   --theme-background: #0a192f;
+   --theme-light-green: #64ffda;
+   --theme-ligth-gray: #ccd6f6;
+ 
+	/* Font sizes */
+
+	/* 30 - 84 px */
+	--fs-500: clamp(2rem, 4.04vw + 0.99rem, 5.28rem);
+	/* 65 px */
+	--fs-400: clamp(1.5rem, 2.73vw + 0.82rem, 3rem);
+	/* 48 px large screen || 24px small screen */
+	--fs-300: clamp(1.5rem, 1.58vw + 1.11rem, 3rem);
+	--fs-200: clamp(1.75rem, 0.26vw + 1.68rem, 2rem);
+	--fs-150: clamp(0.94rem, 0.2vw + 0.89rem, 1.13rem);
+	--fs-100: clamp(0.88rem, 0.13vw + 0.84rem, 1rem);
+
+	/* font-families */
+    
+	--ff-sans-serif: "Sora", sans-serif;
+}
+
+/* Reset */
+
+
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+	margin: 0;
+}  
+
+body {
+	min-height: 100vh;
+	line-height: 1.5;
+	font-family: var(--ff-sans-serif); 
+	overflow-x: hidden;
+    background-color: var(--theme-background);
+}
+
+/* make images easier to work with */
+
+img { display: block }
+
+img,
+picture {
+	max-width: 100%;
+	height: auto;
+}
+
+/* make form elements easier to work with */
+
+input,
+button,
+textarea,
+select, 
+a,
+li
+{
+	font: inherit;
+	font-size: inherit;
+}
+
+li,a { 
+	color: inherit;
+	font-weight: inherit;
+	text-transform: inherit;
+}
+
+a { text-decoration: none }
+
+p { letter-spacing: inherit }
+
+ul {
+    list-style-type: none;
+}
+
+i { color: var(--theme-ligth-gray) }
+
+/* remove animations for people who've turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important; 
+	}  
+}
+
+ul[role="list"] { list-style-type: none } 
+
+html:focus-within { scroll-behavior: smooth }  
+
+/* ------------------- */
+/*   Utility classes   */
+/* ------------------- */ 
+
+.flex { display: flex; gap: var(--gap, 1rem ) } 
+
+.flex-column { flex-direction: column } 
+
+.flex-around { justify-content: space-around }
+
+.flex-center { align-items: center; justify-content: center } 
+
+.container {
+	margin-inline: auto;
+	padding-inline: 1em;
+	max-width: 85vw;
+	height: inherit;
+	z-index: 1;
+}
+
+.capitalize { text-transform: capitalize }
+.uppercase { text-transform: uppercase }
+
+/* Colors */
+
+.color-theme-light-green { color: var(--theme-light-green) }
+.color-theme-ligth-gray { color: var(--theme-ligth-gray) }
+.color-theme-white { color: #fff }
+/* Font Sizes */
+
+/* Typography || "fs == font-size" */
+
+.fs-100 { font-size: var(--fs-100) } /* 16px */
+.fs-200 { font-size: var(--fs-200) } /* 32px */
+.fs-300 { font-size: var(--fs-300) } /* 48px */
+.fs-400 { font-size: var(--fs-400) } /* Clamp => {  [small] [medium] [large] => [24px][between these two][48px] } */
+.fs-500 { font-size: var(--fs-500) } /* Clamp => {  [small] [medium] [large] => [30px][between these two][84px] } */
+
+
+/* Font Weight */
+
+.fw-bold { font-weight: bold }
+
+/* General */
+
+/* Navbar */
+
+.navbar { padding-block: 2em; height: 100px; }
+
+li i { font-size: 32px }
+
+.navlist li { transition: 400ms }
+
+.navlist li:hover { transform: scale(1.2) }
+
+.hero {  
+    height: calc(100vh - 100px);
+    position: relative;
+    justify-content: space-between;
+}
+
+.projects-image { transition: 200ms; cursor: pointer; }
+
+.projects-image:hover { transform: scale(1.1) }
+
+.container-arrow { margin-block: 3rem }
+
+.arrow { 
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    animation-name: arrow-down;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.arrow i {
+    color: var(--theme-light-green);
+}
+
+@keyframes arrow-down {
+    0% { bottom: 20px }
+    25% { bottom: 40px }
+    50% { bottom: 20px }
+    75% { bottom: 40px }
+    100% { bottom: 20px }
+}
+
+.projects-container { width: 100%; margin-block: 2rem; gap: 3rem; }
+
+.projects-container > div { width: 50% }
+
+@media (max-width: 81.25em) {
+
+	.hero { margin-block: 3rem; height: 100%; }
+
+	.projects > div { flex-direction: column }
+	.projects-container > div { width: 100%  }
+}
+
+@media (max-width: 50em) {
+	.email { font-size: 1.25rem }
+}
+
+@media ((orientation: landscape) and (max-width: 1000px)) {
+	.container-arrow { margin-block-start: 8rem }
+	.hero { margin-block-start: 3rem; height: 100%;  }
+}
