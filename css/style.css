@@ -214,6 +214,10 @@ li i { font-size: 32px }
 
 .projects-container > div { width: 50% } 
 
+@media (max-width: 93.75em) {
+	.container-arrow { margin-block-start: 10rem }
+}
+
 @media (max-width: 81.25em) {
 
 	.hero { margin-block: 3rem; height: 100%  }
@@ -222,9 +226,11 @@ li i { font-size: 32px }
 	.projects-container > div { width: 100%  }
 
 	.email { margin-block: 4rem }
+
 }
 
 @media (max-width: 50em) {
+
 
 	.projects-container { padding-block: 3em }
 
