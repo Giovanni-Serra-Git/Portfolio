@@ -237,7 +237,7 @@ li i { font-size: 32px }
 	.email { font-size: 1.25rem }
 }
 
-@media (max-width: 18.75em) {
+@media (max-width: 25em) {
 	.fs-200 { font-size: var(--fs-150) }
 
 	.hero { margin-block: 6rem }
